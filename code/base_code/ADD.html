@@ -1,0 +1,79 @@
+lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-control {
+    height: 30px;
+    width: 40%;
+    margin-bottom: 10px;
+  }
+  .button {
+                    background-color: #edf6ff; /* Цвет фона */
+                    color: #1b4268; /* Цвет текста */
+                    font: bold 0.8em Times New Roman, sans-serif; /* Параметры шрифта */
+                    border: 1px solid #d4dde5; /* Параметры рамки */
+                    padding: 0.5rem 1.5rem; /* Расстояние от рамки до текста */
+                    text-decoration: none; /* Убираем подчёркивание */
+                    text-transform: uppercase; /* Все буквы большие */
+                   /*  border-radius: 0px; Радиус скругления рамки */
+                    transition: 0.5s; /* Время перехода */
+                    margin-top: 20px; /*  Отступ сверху  */
+                    margin-bottom: 20px; /*  Отступ снизу  */
+                    margin-left: 40px;
+                    margin-right: 40px;
+                    float: left;
+                    display: inline-block;
+                   }
+
+</style>
+</head>
+{#<body>#}
+{#    <div class = "container">#}
+{#    <form method="post" action="/add">#}
+{#        <legend>Добавить маршрут для судна</legend>#}
+{#        <input type="text" name="route_id" placeholder="Идентификатор маршрута">#}
+{#         <input type="text" name="reg_number_id" placeholder="Идентификатор судна">#}
+{#         <input type="text" name="departure_date" placeholder="Дата убывания судна (дата и время)">#}
+{#         <input type="text" name="arrive_date" placeholder="Дата пребывания судна (дата и время)">#}
+{#         <input type="text" name="origin" placeholder="Пункт отправления (название порта)">#}
+{#         <input type="text" name="destination" placeholder="Пункт назначения (название порта)">#}
+{#        <button type="submit">Добавить</button>#}
+{#    </form>#}
+{#            <form method="get", action="/">#}
+{#            <a href="/">Вернуться</a>#}
+{#            </form>#}
+{#    </div>#}
+{#</body>#}
+<body class="container">
+  <form method="post" action="/add">
+    <h1>Добавить маршрут для судна</h1>
+    <div class="form-group">
+      <input type="text" name="route_id" placeholder="Идентификатор маршрута " class="form-control">
+    </div>
+   <div class="form-group">
+      <input type="text" name="reg_number_id" placeholder="Идентификатор судна" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" name="departure_date" placeholder="Дата убывания судна (дата и время)" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" name="arrive_date" placeholder="Дата пребывания судна (дата и время)" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" name="origin" placeholder="Пункт отправления (название порта)" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" name="destination" placeholder="Пункт назначения (название порта)" class="form-control">
+    </div>
+    <button class = "button"type="submit">Добавить</button>
+  </form>
+  <a href="/" class="button">Вернуться</a>
+</body>
+</html>
+
+

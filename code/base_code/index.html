@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица данных о отправителях</title>
+</head>
+<body>
+    <style>
+        table {
+            border-collapse: collapse; /*   Убираем двойные границы между ячейками   */
+        }
+        th, td {
+            border: 1px solid black; /*   Добавляем границу вокруг каждой ячейки   */
+            padding: 8px; /*   Добавляем немного пространства между содержимым и границей   */
+        }
+
+           .button {
+                    background-color: #edf6ff; /* Цвет фона */
+                    color: #1b4268; /* Цвет текста */
+                    font: bold 0.8em Times New Roman, sans-serif; /* Параметры шрифта */
+                    border: 1px solid #d4dde5; /* Параметры рамки */
+                    padding: 0.5rem 1.5rem; /* Расстояние от рамки до текста */
+                    text-decoration: none; /* Убираем подчёркивание */
+                    text-transform: uppercase; /* Все буквы большие */
+                   /*  border-radius: 0px; Радиус скругления рамки */
+                    transition: 0.5s; /* Время перехода */
+                    margin-top: 20px; /*  Отступ сверху  */
+                    margin-bottom: 20px; /*  Отступ снизу  */
+                    margin-left: 40px;
+                    margin-right: 40px;
+                    float: left;
+                    display: inline-block;
+                   }
+           .button:hover {
+                        background-color: #f60; /* Цвет фона */
+                        color: #fff; /* Цвет текста */
+                        border-color: #f60; /* Цвет рамки */
+                       }
+    </style>
+    <table>
+        <tr>
+            <th>Идентификатор маршрута</th>
+            <th>Идентификатор судна</th>
+            <th>Дата убывания судна</th>
+            <th>Дата пребывания судна</th>
+            <th>Пункт отправления</th>
+            <th>Пункт назначения</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <form method="post", action="/add">
+            <a href="/add" class="button">Добавить</a>
+    </form>
+    <form method="get", action="/req1">
+            <a href="/req1" class="button">Информация об общей величине грузов по категории</a>
+    </form>
+    </form>
+    <form method="get", action="/req2">
+            <a href="/req2" class="button">Информация о наличии таможенной декларации у партии грузов</a>
+    </form>
+    </form>
+    <form method="get", action="/req3">
+            <a href="/req3" class="button">Информация о количестве партий грузов на судне</a>
+    </form>
+</body>
+</html>
