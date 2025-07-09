@@ -67,7 +67,13 @@ def req3():
         rows = cur.fetchall()
         return render_template('Request3.html', data=rows)
 
-
+@app.route('/req4', methods=['GET'])
+def req4():
+    if request.method == 'GET':
+        cur.execute("SELECT m.route_id, s.name AS ship_name, m.origin, m.destination, EXTRACT(DAY FROM (m.arrive_date - m.departure_date)) AS duration_days, ROUND(EXTRACT(EPOCH FROM (m.arrive_date - m.departure_date))/3600)::integer AS hours_in_transit FROM kostochka.marshryt m JOIN kostochka.sydno s ON m.reg_number_id = s.reg_number_id ORDER BY (m.arrive_date - m.departure_date) DESC LIMIT 10;")
+        rows = cur.fetchall()
+        return render_template('Request4.html', data=rows)
+    
 if __name__ == '__main__':
     app.run(debug=True)
 
