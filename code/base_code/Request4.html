@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о маршрутах с самой долгой продолжительностью рейса</title>
+</head>
+<body>
+    <style>
+        table {
+            border-collapse: collapse; /*   Убираем двойные границы между ячейками   */
+        }
+        th, td {
+            border: 1px solid black; /*   Добавляем границу вокруг каждой ячейки   *  /
+            padding: 8px; /*   Добавляем немного пространства между содержимым и границей   */
+        }
+            .button {
+                    background-color: #edf6ff; /* Цвет фона */
+                    color: #1b4268; /* Цвет текста */
+                    font: bold 0.8em Times New Roman, sans-serif; /* Параметры шрифта */
+                    border: 1px solid #d4dde5; /* Параметры рамки */
+                    padding: 0.5rem 1.5rem; /* Расстояние от рамки до текста */
+                    text-decoration: none; /* Убираем подчёркивание */
+                    text-transform: uppercase; /* Все буквы большие */
+                   /*  border-radius: 0px; Радиус скругления рамки */
+                    transition: 0.5s; /* Время перехода */
+                    margin-top: 20px; /*  Отступ сверху  */
+                    margin-bottom: 20px; /*  Отступ снизу  */
+                    margin-left: 40px;
+                    margin-right: 40px;
+                    float: left;
+                    display: inline-block;
+                   }
+    </style>
+<table>
+        <h1>Информация о маршрутах с самой долгой продолжительностью рейса</h1>
+        <tr>
+            <th>ID маршрута</th>
+            <th>Название судна</th>
+            <th>Пункт отправления</th>
+            <th>Пункт назначения</th>
+            <th>Общее кол-во дней</th>
+            <th>Общее кол-во часов</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <form method="get", action="/">
+        <a href="/" class="button">Вернуться</a>
+    </form>
+</body>
+</html>
